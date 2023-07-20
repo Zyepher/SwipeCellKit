@@ -223,9 +223,9 @@ class SwipeActionsView: UIView {
         }
         
         if #available(iOS 10, *) {
-            expansionAnimator = UIViewPropertyAnimator(duration: timingParameters?.duration ?? 0.6, dampingRatio: 1.0)
+            expansionAnimator = UIViewPropertyAnimator(duration: timingParameters?.duration ?? 0.3, dampingRatio: 1.0)
         } else {
-            expansionAnimator = UIViewSpringAnimator(duration: timingParameters?.duration ?? 0.6,
+            expansionAnimator = UIViewSpringAnimator(duration: timingParameters?.duration ?? 0.3,
                                                      damping: 1.0,
                                                      initialVelocity: 1.0)
         }

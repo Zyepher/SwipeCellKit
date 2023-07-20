@@ -239,7 +239,7 @@ class SwipeController: NSObject {
         swipeable.state = .dragging
     }
     
-    func animate(duration: Double = 0.7, toOffset offset: CGFloat, withInitialVelocity velocity: CGFloat = 0, completion: ((Bool) -> Void)? = nil) {
+    func animate(duration: Double = 0.3, toOffset offset: CGFloat, withInitialVelocity velocity: CGFloat = 0, completion: ((Bool) -> Void)? = nil) {
         stopAnimatorIfNeeded()
         
         swipeable?.layoutIfNeeded()
@@ -323,9 +323,13 @@ class SwipeController: NSObject {
     
     func targetCenter(active: Bool) -> CGFloat {
         guard let swipeable = self.swipeable else { return 0 }
-        guard let actionsView = swipeable.actionsView, active == true else { return swipeable.bounds.midX }
-        
-        return swipeable.bounds.midX - actionsView.preferredWidth * actionsView.orientation.scale
+//        guard let actionsView = swipeable.actionsView, active == true else { return swipeable.bounds.midX }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+            self?.swipeable?.state = .center
+            self?.swipeable?.actionsView?.removeFromSuperview()
+            self?.swipeable?.actionsView = nil
+        }
+        return swipeable.bounds.midX
     }
     
     func configure() {

@@ -10,7 +10,7 @@ import UIKit
 /// Describes the expansion style.  Expansion is the behavior when the cell is swiped past a defined threshold.
 public struct SwipeExpansionStyle {    
     /// The default action performs a selection-type behavior. The cell bounces back to its unopened state upon selection and the row remains in the table/collection view.
-    public static var selection: SwipeExpansionStyle { return SwipeExpansionStyle(target: .percentage(0.5),
+    public static var selection: SwipeExpansionStyle { return SwipeExpansionStyle(target: .percentage(0),
                                                                                   elasticOverscroll: true,
                                                                                   completionAnimation: .bounce) }
     
@@ -60,7 +60,7 @@ public struct SwipeExpansionStyle {
     /// The amount of elasticity applied when dragging past the expansion target.
     ///
     /// - note: Default value is 0.2. Valid range is from 0.0 for no movement past the expansion target, to 1.0 for unrestricted movement with dragging.
-    public var targetOverscrollElasticity: CGFloat = 0.2
+    public var targetOverscrollElasticity: CGFloat = 1.0
     
     var minimumExpansionTranslation: CGFloat = 8.0
     

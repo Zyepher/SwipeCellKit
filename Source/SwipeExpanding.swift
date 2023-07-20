@@ -59,7 +59,7 @@ public struct SwipeExpansionAnimationTimingParameters {
      
      - returns: The new `SwipeExpansionAnimationTimingParameters` instance.
      */
-    public init(duration: Double = 0.6, delay: Double = 0) {
+    public init(duration: Double = 0.3, delay: Double = 0) {
         self.duration = duration
         self.delay = delay
     }
